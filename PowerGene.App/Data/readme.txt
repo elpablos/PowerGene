@@ -1,0 +1,1 @@
+﻿Složka pro zápis logů a DB

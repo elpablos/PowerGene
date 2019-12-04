@@ -1,0 +1,4 @@
+﻿Added reference:
+===============
+Poweshell!
+ - C:\Program Files (x86)\Reference Assemblies\Microsoft\WindowsPowerShell\3.0\System.Management.Automation.dll

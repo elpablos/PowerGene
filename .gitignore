@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.user
+/.vs
+/packages
+/PowerGene.App/obj
+/PowerGene.App/bin
+/PowerGene.Core/obj
+/PowerGene.Core/bin
+/PowerGene.Module.ItemList/bin
+/PowerGene.Module.ItemList/obj
+/PowerGene.Module.MsSQL/bin
+/PowerGene.Module.MsSQL/obj

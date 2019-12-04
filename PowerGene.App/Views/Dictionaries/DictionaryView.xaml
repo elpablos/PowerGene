@@ -1,0 +1,53 @@
+﻿<Fluent:RibbonWindow x:Class="PowerGene.App.Views.Dictionaries.DictionaryView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:Fluent="urn:fluent-ribbon"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PowerGene.App.Views.Dictionaries"
+        mc:Ignorable="d"
+        Title="DictionaryView" Height="600" Width="800" WindowStartupLocation="CenterOwner">
+    <DockPanel>
+        <!-- top -->
+        <Fluent:Ribbon DockPanel.Dock="Top" IsCollapsed="True">
+            <!--Backstage-->
+            <Fluent:Ribbon.Menu>
+                <Fluent:Backstage>
+                </Fluent:Backstage>
+            </Fluent:Ribbon.Menu>
+
+            <!--Tabs-->
+            <Fluent:RibbonTabItem Header="Home" >
+                <Fluent:RibbonGroupBox Header="Group">
+                    <Fluent:Button Header="Settings" Name="SettingButton" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <cal:ActionMessage MethodName="SettingAction" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Grey" />
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+        </Fluent:Ribbon>
+
+        <Grid Margin="10 5">
+            <DockPanel>
+                <WrapPanel DockPanel.Dock="Bottom">
+                    <Button Name="SaveAction" Content="Save" />
+                    <Button Name="RemoveAction" Content="Remove" />
+                    <Button Name="CloseAction" Content="Close" />
+                </WrapPanel>
+
+                <DataGrid ItemsSource="{Binding Model.Items, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                  SelectedItem="{Binding Model.SelectedItem}" AutoGenerateColumns="True"  
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" 
+                  CanUserSortColumns="True" CanUserResizeColumns="True">
+                </DataGrid>
+
+            </DockPanel>
+        </Grid>
+    </DockPanel>
+</Fluent:RibbonWindow>

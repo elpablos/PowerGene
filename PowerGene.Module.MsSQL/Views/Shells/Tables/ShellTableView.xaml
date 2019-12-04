@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="PowerGene.Module.MsSQL.Views.Shells.Tables.ShellTableView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:local="clr-namespace:PowerGene.Module.MsSQL.Views.Shells.Tables"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <CollectionViewSource x:Name="ItemSource" x:Key="ItemSource" Source="{Binding Model.Items}" />
+        <CollectionViewSource x:Name="ActionContextSource" x:Key="ActionContextSource" Filter="ActionContextSource_Filter" Source="{Binding Model.Actions}" />
+        <CollectionViewSource x:Name="ActionNonContextSource" x:Key="ActionNonContextSource" Filter="ActionNonContextSource_Filter" Source="{Binding Model.Actions}" />
+    </UserControl.Resources>
+    <DockPanel>
+        <WrapPanel DockPanel.Dock="Top" Margin="0 5">
+            <Label Content="DisplayName: " VerticalAlignment="Center" Style="{StaticResource FormControl}"/>
+            <TextBox x:Name="txtDisplayNameFilter" Style="{StaticResource FormControl}"/>
+            <Button Name="FilterButton" Content="Filter" Click="FilterButton_Click" IsDefault="True" />
+        </WrapPanel>
+
+        <ItemsControl ItemsSource="{Binding Source={StaticResource ActionNonContextSource}}" DockPanel.Dock="Bottom" Margin="0 5">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Path=Value.DisplayName}" 
+                            cal:Message.Attach="[Event Click] = [Action RunScriptAction($dataContext)]" 
+                            Margin="3 0" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+
+        <DataGrid ItemsSource="{Binding Source={StaticResource ItemSource}}" 
+                  SelectedItem="{Binding Model.SelectedItem}" AutoGenerateColumns="True"  
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" 
+                  CanUserSortColumns="True" CanUserResizeColumns="True"
+                  cal:Message.Attach="[Event MouseDoubleClick] = [Action RunScriptAction(null)]"
+                  Tag="{Binding Path=.}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=DisplayName}" Header="DisplayName" CanUserSort="True" Width="*" />
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu ItemsSource="{Binding Source={StaticResource ActionContextSource}}">
+                    <ContextMenu.ItemTemplate>
+                        <DataTemplate>
+                            <MenuItem Header="{Binding Path=Value.DisplayName}"
+                                      cal:Action.TargetWithoutContext="{Binding Path=PlacementTarget.Tag, 
+                                        RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}}"
+                                      cal:Message.Attach="RunScriptAction($datacontext)">
+                            </MenuItem>
+                        </DataTemplate>
+                    </ContextMenu.ItemTemplate>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,104 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:fa="http://schemas.fontawesome.io/icons/"
+                    xmlns:Fluent="urn:fluent-ribbon"
+                    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                    xmlns:local="clr-namespace:PowerGene.App">
+
+    <Style x:Key="ValidationControl" TargetType="{x:Type Control}">
+        <Setter Property="Margin" Value="0,2,40,2" />
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DockPanel LastChildFill="true">
+                        <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="15" Height="15" CornerRadius="10"
+                            ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                            <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                            </TextBlock>
+                        </Border>
+                        <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                            <Border BorderBrush="red" BorderThickness="1" />
+                        </AdornedElementPlaceholder>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TitleStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+
+    <Style x:Key="FormLabel" TargetType="Label">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+    </Style>
+
+    <Style x:Key="FormReadOnlyLabel" TargetType="Label">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style x:Key="FormControl" TargetType="Control" BasedOn="{StaticResource ValidationControl}">
+        <Setter Property="Width" Value="120" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="FormControlRight" TargetType="Control" BasedOn="{StaticResource FormControl}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    
+    <!--<Style x:Key="TitleIcon" TargetType="fa:ImageAwesome">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Height" Value="16" />
+        <Setter Property="Margin" Value="5" />
+    </Style>-->
+
+    <Style TargetType="Button" x:Key="MyButton">
+        <Setter Property="Margin" Value="5" />
+        <!--<Setter Property="Padding" Value="25" />-->
+    </Style>
+
+    <Style x:Key="FormAddButton" TargetType="Button" >
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Source="/Resources/plus_32px.png"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FormDetailButton" TargetType="Button" >
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Source="/Resources/view_file_32px.png"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- context menu -->
+    <ItemsPanelTemplate x:Key="MenuItemPanelTemplate">
+        <StackPanel Margin="-30, 0, 0, 0" Background="White"/>
+    </ItemsPanelTemplate>
+
+    <Style TargetType="{x:Type MenuItem}">
+        <Setter Property="ItemsPanel" Value="{StaticResource MenuItemPanelTemplate}"/>
+        <Setter Property="Padding" Value="0, 4"/>
+    </Style>
+
+    <Style TargetType="{x:Type ContextMenu}">
+        <Setter Property="ItemsPanel" Value="{StaticResource MenuItemPanelTemplate}"/>
+    </Style>
+
+</ResourceDictionary>

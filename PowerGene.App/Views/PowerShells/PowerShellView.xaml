@@ -1,0 +1,77 @@
+﻿<Fluent:RibbonWindow x:Class="PowerGene.App.Views.PowerShells.PowerShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:Fluent="urn:fluent-ribbon"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PowerGene.App.Views.PowerShells"
+        mc:Ignorable="d"
+        Title="PowerShellView" Height="600" Width="800" WindowStartupLocation="CenterOwner">
+    <DockPanel>
+        <!-- top -->
+        <Fluent:Ribbon DockPanel.Dock="Top" IsCollapsed="True">
+            <!--Backstage-->
+            <Fluent:Ribbon.Menu>
+                <Fluent:Backstage>
+                </Fluent:Backstage>
+            </Fluent:Ribbon.Menu>
+
+            <!--Tabs-->
+            <Fluent:RibbonTabItem Header="Home" >
+                <Fluent:RibbonGroupBox Header="Group">
+                    <Fluent:Button Header="Settings" Name="SettingButton" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <cal:ActionMessage MethodName="SettingAction" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Grey" />
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+        </Fluent:Ribbon>
+
+        <Grid Margin="10 5">
+            <DockPanel>
+                <WrapPanel DockPanel.Dock="Bottom">
+                    <Button Name="RunAction" Content="Run" />
+                    <Button Name="SaveAction" Content="Save" />
+                    <Button Name="CloseAction" Content="Close" />
+                </WrapPanel>
+
+                <TabControl>
+                    <TabControl.Items>
+                        <TabItem Header="Script">
+                            <ScrollViewer>
+                                <TextBox Text="{Binding Model.Script}" AcceptsReturn="True" />
+                            </ScrollViewer>
+                        </TabItem>
+                        <TabItem Header="Results">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".7*"/>
+                                    <ColumnDefinition Width=".3*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <DataGrid Grid.Column="0" ItemsSource="{Binding Path=Model.Results, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      AutoGenerateColumns="True" SelectedItem="{Binding Path=Model.SelectedResult}"
+                                      CanUserAddRows="True" CanUserDeleteRows="True" IsReadOnly="False" CanUserSortColumns="True" CanUserResizeColumns="True">
+                                </DataGrid>
+
+                                <DataGrid Grid.Column="1" ItemsSource="{Binding Path=Model.ResultItems, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      AutoGenerateColumns="True" SelectedItem="{Binding Path=Model.SelectedResultItem}"
+                                      CanUserAddRows="True" CanUserDeleteRows="True" IsReadOnly="False" CanUserSortColumns="True" CanUserResizeColumns="True">
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+
+                    </TabControl.Items>
+                </TabControl>
+
+             
+            </DockPanel>
+        </Grid>
+    </DockPanel>
+</Fluent:RibbonWindow>
