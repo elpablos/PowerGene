@@ -190,10 +190,6 @@
       <Project>{f2f407aa-f896-4899-8165-1e758277cb2e}</Project>
       <Name>PowerGene.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PowerGene.Module.MsSQL\PowerGene.Module.MsSQL.csproj">
-      <Project>{a4d5109a-2001-483a-808a-d4e4b2b5afe6}</Project>
-      <Name>PowerGene.Module.MsSQL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
