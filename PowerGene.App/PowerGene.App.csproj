@@ -136,6 +136,36 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Scripts\Modules\Invoke-MsBuild\ReadMe.txt" />
+    <None Include="Scripts\Core\Commands\Initialize-Script.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\Core\Commands\Open-Powershell-ISE.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\Core\Commands\Open-Visual-Code.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\Core\FileOperations\Open-File.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\Core\FileOperations\Save-File.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\Core\SettingOperations\Set-Settings.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\Modules\Invoke-MsBuild\Invoke-MsBuild.psd1" />
+    <None Include="Scripts\Modules\Invoke-MsBuild\Invoke-MsBuild.psm1" />
+    <None Include="Scripts\Modules\Powergene\Powergene.psd1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\Modules\Powergene\Powergene.psm1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Template.pwgen">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Resource Include="PowerGene.ico" />
     <Resource Include="readme.txt" />
     <Resource Include="Resources\dna_helix_filled_64px.ico" />

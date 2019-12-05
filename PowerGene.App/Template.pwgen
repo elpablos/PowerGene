@@ -1,0 +1,41 @@
+﻿{
+  "IsDeveloper": false,
+  "Path": "Template.pwgen",
+  "Metadata": {
+    "ProjectName": "Template"
+  },
+  "Scripts": {
+    "InitializeScript": {
+      "Path": "Scripts/Core/Commands/Initialize-Script.ps1"
+    },
+    "FileOperations": {
+      "Open": {
+        "DisplayName": "Open",
+        "Path": "Scripts/Core/FileOperations/Open-File.ps1",
+        "HasData": true
+      }
+      // "Save": {
+      //   "DisplayName": "Save",
+      //   "Path": "Scripts/Core/FileOperations/Save-File.ps1",
+      //   "HasData": false
+      // }
+    },
+    "SettingOperations": {
+      "Settings": {
+        "DisplayName": "Settings",
+        "Path": "Scripts/Core/SettingOperations/Set-Settings.ps1",
+        "HasData": true
+      }
+    },
+    "Commands": {
+      "OpenPowerShellISE": {
+        "DisplayName": "PowerShell ISE",
+        "Path": "Scripts/Core/Commands/Open-Powershell-ISE.ps1"
+      },
+      "OpenVisualCode": {
+        "DisplayName": "Visual Code",
+        "Path": "Scripts/Core/Commands/Open-Visual-Code.ps1"
+      }
+    }
+  }
+}

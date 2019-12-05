@@ -61,22 +61,7 @@ namespace PowerGene.Core.Models.Projects
                     {
                         { "Path", "Scripts/Core/Commands/Initialize-Script.ps1" }
                     }
-                },
-                {
-                    "FileOperations",
-                    new Dictionary<string, object>
-                    {
-                        {
-                            "Open",
-                            new Dictionary<string, object>
-                            {
-                                { "DisplayName", "Open" },
-                                { "Path", "Scripts/Core/FileOperations/Open-File.ps1" },
-                                { "HasData", true }
-                            }
-                        }
-                    }
-                },
+                }
             };
         }
 

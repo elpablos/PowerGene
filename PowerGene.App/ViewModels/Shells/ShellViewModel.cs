@@ -23,12 +23,15 @@ namespace PowerGene.App.ViewModels.Shells
         protected const string COMMANDS_SECTION_KEY = "Commands";
         protected const string FILE_OPERATIONS_SECTION_KEY = "FileOperations";
         protected const string SETTING_OPERATIONS_SECTION_KEY = "SettingOperations";
+        protected const string DEFAULT_TEMPLATE = "Template.pwgen";
+        protected const string EXTENSION_TEMPLATE = ".pwgen";
 
         private ShellModel _Model;
         private readonly IEventAggregator _eventAggregator;
         private readonly IProjectManager _projectManager;
         private readonly IWindowManager _windowManager;
         private readonly IPowerShellManager _powerShellManager;
+
 
         #endregion
 
@@ -88,10 +91,14 @@ namespace PowerGene.App.ViewModels.Shells
             if (args.GetLength(0) > 1)
             {
                 LogManager.GetLog(typeof(ShellViewModel)).Warn(string.Join(" ", args));
-                if (args[1].EndsWith(".pwgen"))
+                if (args[1].EndsWith(EXTENSION_TEMPLATE))
                 {
                     Model.Path = args[1];
                 }
+            }
+            else
+            {
+                Model.Path = FileHelper.GetAbsolutePath(DEFAULT_TEMPLATE);
             }
 
             if (Model.Path != null)
