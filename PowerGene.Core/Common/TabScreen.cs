@@ -53,7 +53,7 @@ namespace PowerGene.Core.Common
                 if (run)
                 {
                     var item = _projectManager.Model.GetDictOrInit(ModuleKeyName)
-                        .FirstOrDefault(x => x.Value == selectedItem);
+                        .FirstOrDefault(x => x.Value?.ToString() == selectedItem?.ToString());
                     _projectManager.Model.ProcessItem.Clear();
                     if (isContext)
                     {
