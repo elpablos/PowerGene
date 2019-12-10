@@ -9,7 +9,7 @@ Initialize-Builder
 Get-GenerateLine $data
 
 # usingy
-Add-Line('@model {0}.Modules.{1}.{2}{3}{3}{4}Model' -f $data.Metadata.AppNamespace, $data.Metadata.Modules, $data.Metadata.PluralName, '.DetailHeader', $data.Metadata.Name)
+Add-Line('@model {0}.Controllers.{1}.{2}{3}{3}{4}Model' -f $data.Metadata.AppNamespace, $data.Metadata.Modules, $data.Metadata.PluralName, '.DetailHeader', $data.Metadata.Name)
 
 Add-Line('<nav class="navbar">')
 Add-Line('  <div class="container">')

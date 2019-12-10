@@ -12,15 +12,15 @@ $table = $data.Metadata.ProcedureName.Substring(0, $data.Metadata.ProcedureName.
 
 # usingy
 Add-Line('using {0}.Controllers.Common;'-f $data.Metadata.AppNamespace, $data.Metadata.Modules, $data.Metadata.PluralName)
-Add-Line('using {0}.Modules.Shared.History;'-f $data.Metadata.AppNamespace, $data.Metadata.Modules, $data.Metadata.PluralName)
-#Add-Line('using {0}.Modules.{1}.{2}{3};' -f $data.Metadata.AppNamespace, $data.Metadata.Modules, $data.Metadata.PluralName, (('.'+$data.Metadata.Prefix),'')[$data.Metadata.OperationType -eq 'BLANK'])
+Add-Line('using {0}.Controllers.Shared.History;'-f $data.Metadata.AppNamespace, $data.Metadata.Modules, $data.Metadata.PluralName)
+#Add-Line('using {0}.Controllers.{1}.{2}{3};' -f $data.Metadata.AppNamespace, $data.Metadata.Modules, $data.Metadata.PluralName, (('.'+$data.Metadata.Prefix),'')[$data.Metadata.OperationType -eq 'BLANK'])
 Add-Line('using {0}.Mvc.Common;'-f $data.Metadata.AppNamespace, $data.Metadata.Modules, $data.Metadata.PluralName)
 Add-Line('using System.Web.Mvc;')
 
 Add-Line('')
 
 # hlavicka
-Add-Line('namespace {0}.Modules.{1}.{2}' -f $data.Metadata.AppNamespace, $data.Metadata.Modules, $data.Metadata.PluralName)
+Add-Line('namespace {0}.Controllers.{1}.{2}' -f $data.Metadata.AppNamespace, $data.Metadata.Modules, $data.Metadata.PluralName)
 
 Add-Line('{')
 Add-Line('    /// <summary>')

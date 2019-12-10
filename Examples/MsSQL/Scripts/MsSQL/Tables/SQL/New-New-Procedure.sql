@@ -6,7 +6,7 @@
 -- synchronizace kodu se SF: 28.7.2014
 -- upraveno: 28.5.2015
 
-declare @SQL varchar(8000)
+declare @SQL varchar(max)
 declare @IsVCID bit
 
 -- informace o tabulce

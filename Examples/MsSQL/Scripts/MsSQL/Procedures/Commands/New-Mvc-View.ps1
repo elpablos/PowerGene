@@ -35,6 +35,10 @@ if ($obj.Metadata.OperationType -eq 'NEW') {
     # edit
     $filepath = Join-Path -Path $path -ChildPath $('{0}.cshtml' -f $obj.Metadata.Prefix)
     .\Scripts\MsSQL\Procedures\Mvc\Web\View\New-Edit-View.ps1 $obj | Out-File $filepath
+} elseif ($obj.Metadata.OperationType -eq 'DETAIL') {
+    # detail
+    $filepath = Join-Path -Path $path -ChildPath $('{0}.cshtml' -f $obj.Metadata.Prefix)
+    .\Scripts\MsSQL\Procedures\Mvc\Web\View\New-Detail-View.ps1 $obj | Out-File $filepath
 } elseif ($obj.Metadata.OperationType -eq 'ALL') {
     # list
     $filepath = Join-Path -Path $path -ChildPath $('{0}.cshtml' -f $obj.Metadata.PrefixExtend)

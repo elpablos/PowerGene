@@ -284,6 +284,11 @@ foreach ($i in $inputParams) {
             $type='int'
             $dbtype='Int32' 
         }
+        'bigint'
+        { 
+            $type='int'
+            $dbtype='Int64' 
+        }
         'bit'
         {
             $type='bool'
@@ -432,6 +437,11 @@ foreach ($o in $outputParams) {
         { 
             $type='int'
             $dbtype='Int32' 
+        }
+        'bigint'
+        { 
+            $type='int'
+            $dbtype='Int64' 
         }
         'float'
         {

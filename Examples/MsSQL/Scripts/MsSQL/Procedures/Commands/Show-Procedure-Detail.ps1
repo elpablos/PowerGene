@@ -2,10 +2,6 @@
     [Parameter(ValueFromPipeline = $true)]$data = $null
 )
 
-If (!(Get-module Powergene)) {
-    Import-Module .\Scripts\modules\Powergene\Powergene.psm1
-}
-
 # connString
 $conn = new-object System.Data.SqlClient.SqlConnection $data.Metadata.ConnectionString
 $conn.Open()
@@ -20,6 +16,7 @@ select sys.sql_modules.definition from sysobjects
 left join sys.sql_modules on sys.sql_modules.object_id = sysobjects.id
 where name = @name
 "
+
 $cmd = new-object System.Data.SqlClient.SqlCommand($q, $conn)
 $cmd.Parameters.AddWithValue('@name', $proc) | Out-Null
 $reader = $cmd.ExecuteReader() 

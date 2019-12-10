@@ -5,7 +5,7 @@
 --------
 -- synchronizace kodu se SF: 28.7.2014
 
-declare @SQL varchar(8000)
+declare @SQL varchar(max)
 declare @IsVCID bit
 
 declare @ID_TableParent varchar(50), @ColumnTableParent varchar(50)

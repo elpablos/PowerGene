@@ -6,7 +6,7 @@
 -- synchronizace kodu se SF: 28.7.2014
 -- upraveno: 28.05.2015
 
-declare @SQL varchar(8000)
+declare @SQL varchar(max)
 
 -- informace o nadrizene tabulce
 declare @ID_TableParent IDVC, @ColumnTableParent varchar(255), @IsActionParentTable bit, @Name nvarchar(255)

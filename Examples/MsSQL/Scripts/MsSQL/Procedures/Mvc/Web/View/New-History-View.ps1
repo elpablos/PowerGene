@@ -9,7 +9,7 @@ Initialize-Builder
 Get-GenerateLine $data
 
 # usingy
-Add-Line('@model {0}.Modules.Shared.History.HistorySharedModel' -f $data.Metadata.AppNamespace)
+Add-Line('@model {0}.Controllers.Shared.History.HistorySharedModel' -f $data.Metadata.AppNamespace)
 Add-Line('@{')
 Add-Line('  ViewBag.Title = $"{{{0}.Resources.Dictionary.Global_History}}";' -f $data.Metadata.AppNamespace)
 Add-Line('}');

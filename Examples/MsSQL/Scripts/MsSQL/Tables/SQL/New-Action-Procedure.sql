@@ -7,7 +7,7 @@
 
 declare @SQL varchar(8000)
 
-declare @ID varchar(100), @DisplayName varchar(255)
+declare @ID varchar(50), @DisplayName varchar(255)
 declare @Column varchar(255), @Type varchar(255), @Length varchar(255)
 
 set @SQL = '/* Zjištění oprávnění uživatele proti záznamům v tabulce ' + @ID_Table + ' */
@@ -26,10 +26,10 @@ where
 
 set @SQL = @SQL + ',
 @' + @Column + ' ' + @Type
-if @Type='IDVC' set @SQL = @SQL +'('+@Length+')'
+--if @Type='IDVC' set @SQL = @SQL +'('+@Length+')'
 
 set @SQL = @SQL + ',
-@ID_Action nvarchar(100),
+@ID_Action IDVC,
 @IsRaiseError bit = 1
 AS
 BEGIN
@@ -45,7 +45,7 @@ begin
   goto FAILED
 end
 
-declare @Actions table (ID nvarchar(100), DisplayName DN)
+declare @Actions table (ID IDVC, DisplayName DN)
 
 -- načtu seznam možných akcí
 if @ID is null

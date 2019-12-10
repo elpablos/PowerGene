@@ -8,3 +8,7 @@ Nutné aplikace:
 
 POZOR:
  - Asociovat pwgen koncovku s PowerGene aplikací!
+
+Voter.pwgen
+ - vygenerované zdrojové kódy sedí na 
+ - https://github.com/elpablos/voter-demo
