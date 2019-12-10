@@ -9,6 +9,7 @@ PowerGene nově zavádí novou souborovou koncovku *.pwgen.
 
  - Windows 10 (pravděpodobně půjde i na nižších Windows ale netestováno)
  - Powershell 5.1 (je součástí Windows 10)
+ - .NET framework 4.7.2
 
 # Instalace
 
